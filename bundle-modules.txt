@@ -1,0 +1,5 @@
+# Modules built into the optional offline bundle, one per line: owner/repo@branch (public GitHub repos).
+# Each one is a Companion module with its own package.json and a `yarn package` script.
+nisted/companion-surface-intech-grid@main
+nisted/companion-surface-logitech-mx-dialpad@main
+nisted/companion-module-allenheath-sq@grid

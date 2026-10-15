@@ -1,0 +1,81 @@
+name: Build
+
+on:
+  push:
+    branches: ['**']
+    tags: ['v[0-9]+*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HUSKY: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+      - run: corepack enable
+
+      - name: Build module packages
+        run: |
+          set -e
+          mkdir -p out external
+          for entry in $(grep -v '^\s*#' bundle-modules.txt | grep -v '^\s*$'); do
+            case "$entry" in
+              */*@*|*/*)
+                # another GitHub repo: owner/name[@branch] (public repos)
+                repo="${entry%@*}"; ref="main"; [ "$entry" != "$repo" ] && ref="${entry#*@}"
+                dir="external/${repo#*/}"
+                git clone -q --depth 1 --branch "$ref" "https://github.com/$repo.git" "$dir"
+                ;;
+              *) dir="$entry" ;;
+            esac
+            echo "::group::Building $entry"
+            (cd "$dir" && yarn install --no-immutable && yarn package)
+            cp "$dir"/*.tgz out/
+            echo "::endgroup::"
+          done
+          echo "::notice::Packages: $(ls out | tr '\n' ' ')"
+
+      - name: Make offline module bundle
+        run: |
+          set -e
+          name="companion-nige-modules-bundle-$(date -u +%Y%m%d)-${GITHUB_SHA::7}"
+          mkdir -p "bundle/$name"
+          for pkg in out/*.tgz; do
+            rm -rf work && mkdir work && tar -xzf "$pkg" -C work
+            manifest=$(find work -maxdepth 3 -path '*/companion/manifest.json' | head -1)
+            root=$(dirname "$(dirname "$manifest")")
+            id=$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1])).id)" "$manifest")
+            mv "$root" "bundle/$name/$id"
+          done
+          mkdir -p bundle-out
+          tar -czf "bundle-out/$name.tgz" -C bundle "$name"
+          python3 tools/check-bundle.py "bundle-out/$name.tgz" > bundle-check.txt
+          echo "::notice::Bundle contents: $(tr '\n' ';' < bundle-check.txt)"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: companion-nige-modules
+          path: out/*.tgz
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: companion-nige-modules-bundle
+          path: bundle-out/*.tgz
+          if-no-files-found: error
+
+      - name: Attach to release (tags only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            out/*.tgz
+            bundle-out/*.tgz
