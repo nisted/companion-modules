@@ -27,7 +27,7 @@ Add its public repo and branch as a line in `bundle-modules.txt`.
 
 ## Rebel Watch 🍹
 
-Some of the crew are **rebels**: tweaked versions of someone else's module (listed in `rebels.json`). Every morning, Rebel Watch (`.github/workflows/rebel-watch.yml`) checks each original module for a new release. When one turns up, it merges the new version into the rebel on a fresh `rebel-watch/<version>` branch in the rebel's repo, and:
+Every module here is one of **the Rebels**: some are Nige's own originals, and some are built on someone else's module. Those ones are listed in `rebels.json`, and they need to keep up with the original. Every morning, Rebel Watch (`.github/workflows/rebel-watch.yml`) checks each original module for a new release. When one turns up, it merges the new version into the rebel on a fresh `rebel-watch/<version>` branch in the rebel's repo, and:
 
 - **merges cleanly:** opens a pull request there, so the build runs and you get an email
 - **clashes:** opens an issue listing the clashing files, so it can be ported by hand
