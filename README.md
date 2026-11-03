@@ -5,9 +5,11 @@ own; this repo only builds them together, for installing everything on a rig in 
 
 | Module | Repo |
 | --- | --- |
+| OBS Audio | [companion-module-obs-audio](https://github.com/nisted/companion-module-obs-audio) |
+| Allen & Heath SQ with Grid fader additions (on the official 4.0) | [companion-module-allenheath-sq, `grid-4` branch](https://github.com/nisted/companion-module-allenheath-sq/tree/grid-4) |
 | Intech Studio Grid surface | [companion-surface-intech-grid](https://github.com/nisted/companion-surface-intech-grid) |
 | Logitech MX Creative Dialpad surface | [companion-surface-logitech-mx-dialpad](https://github.com/nisted/companion-surface-logitech-mx-dialpad) |
-| Allen & Heath SQ with Grid fader additions | [companion-module-allenheath-sq, `grid` branch](https://github.com/nisted/companion-module-allenheath-sq/tree/grid) |
+| Akai APC surface (all models) | [companion-surface-akai-apc](https://github.com/nisted/companion-surface-akai-apc) |
 
 ## Downloads
 
