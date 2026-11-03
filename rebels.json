@@ -1,0 +1,17 @@
+{
+	"_about": "Rebel modules that are modified versions of someone else's module. Rebel Watch checks each upstream daily and rebuilds the rebel on any new upstream release.",
+	"rebels": [
+		{
+			"name": "Allen & Heath SQ (Grid rebel)",
+			"fork": "nisted/companion-module-allenheath-sq",
+			"upstream": "bitfocus/companion-module-allenheath-sq",
+			"rebelBranch": "grid-4"
+		},
+		{
+			"name": "OSCPoint (sync + Helper rebel)",
+			"fork": "nisted/companion-module-zinc-oscpoint",
+			"upstream": "bitfocus/companion-module-zinc-oscpoint",
+			"rebelBranch": "nige-sync-status"
+		}
+	]
+}
