@@ -6,6 +6,7 @@ own; this repo only builds them together, for installing everything on a rig in 
 | Module | Repo |
 | --- | --- |
 | OBS Audio | [companion-module-obs-audio](https://github.com/nisted/companion-module-obs-audio) |
+| ATEM Audio (pre-release, untested on hardware) | [companion-module-atem-audio](https://github.com/nisted/companion-module-atem-audio) |
 | Allen & Heath SQ with Grid fader additions (on the official 4.0) | [companion-module-allenheath-sq, `grid-4` branch](https://github.com/nisted/companion-module-allenheath-sq/tree/grid-4) |
 | Intech Studio Grid surface | [companion-surface-intech-grid](https://github.com/nisted/companion-surface-intech-grid) |
 | Logitech MX Creative Dialpad surface | [companion-surface-logitech-mx-dialpad](https://github.com/nisted/companion-surface-logitech-mx-dialpad) |

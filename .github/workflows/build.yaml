@@ -32,7 +32,7 @@ jobs:
                 # another GitHub repo: owner/name[@branch] (public repos)
                 repo="${entry%@*}"; ref="main"; [ "$entry" != "$repo" ] && ref="${entry#*@}"
                 dir="external/${repo#*/}"
-                git clone -q --depth 1 --branch "$ref" "https://github.com/$repo.git" "$dir"
+                git clone -q --depth 1 --recurse-submodules --shallow-submodules --branch "$ref" "https://github.com/$repo.git" "$dir"
                 ;;
               *) dir="$entry" ;;
             esac
