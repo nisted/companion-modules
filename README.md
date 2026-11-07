@@ -11,6 +11,8 @@ own; this repo only builds them together, for installing everything on a rig in 
 | Intech Studio Grid surface | [companion-surface-intech-grid](https://github.com/nisted/companion-surface-intech-grid) |
 | Logitech MX Creative Dialpad surface | [companion-surface-logitech-mx-dialpad](https://github.com/nisted/companion-surface-logitech-mx-dialpad) |
 | Akai APC surface (all models) | [companion-surface-akai-apc](https://github.com/nisted/companion-surface-akai-apc) |
+| Comms Remote (mic mute and volume box, OSC) | [companion-module-comms-remote](https://github.com/nisted/companion-module-comms-remote) |
+| Comms Remote surface (the box's 3x2 touch grid, USB) | [companion-surface-comms-remote](https://github.com/nisted/companion-surface-comms-remote) |
 
 ## Downloads
 

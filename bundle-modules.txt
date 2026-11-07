@@ -6,3 +6,5 @@ nisted/companion-module-allenheath-sq@grid-4
 nisted/companion-surface-intech-grid@main
 nisted/companion-surface-logitech-mx-dialpad@main
 nisted/companion-surface-akai-apc@main
+nisted/companion-module-comms-remote@main
+nisted/companion-surface-comms-remote@main
