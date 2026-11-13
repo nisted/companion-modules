@@ -12,6 +12,12 @@
 			"fork": "nisted/companion-module-zinc-oscpoint",
 			"upstream": "bitfocus/companion-module-zinc-oscpoint",
 			"rebelBranch": "nige-sync-status"
+		},
+		{
+			"name": "Roland V-160HD (Input 1-20, paced queue, presets rebel)",
+			"fork": "nisted/companion-module-roland-v160hd",
+			"upstream": "bitfocus/companion-module-roland-v160hd",
+			"rebelBranch": "rebel"
 		}
 	]
 }
