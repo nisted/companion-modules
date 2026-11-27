@@ -7,7 +7,7 @@ own; this repo only builds them together, for installing everything on a rig in 
 | --- | --- |
 | OBS Audio | [companion-module-obs-audio](https://github.com/nisted/companion-module-obs-audio) |
 | ATEM Audio (pre-release, untested on hardware) | [companion-module-atem-audio](https://github.com/nisted/companion-module-atem-audio) |
-| Allen & Heath SQ with Grid fader additions (on the official 4.0) | [companion-module-allenheath-sq, `grid-4` branch](https://github.com/nisted/companion-module-allenheath-sq/tree/grid-4) |
+| Allen & Heath SQ rebel (on the official 4.0): Grid faders with pickup, Grid presets, A&H remote link for names and channel processing | [companion-module-allenheath-sq, `grid-4` branch](https://github.com/nisted/companion-module-allenheath-sq/tree/grid-4) |
 | Intech Studio Grid surface | [companion-surface-intech-grid](https://github.com/nisted/companion-surface-intech-grid) |
 | Logitech MX Creative Dialpad surface | [companion-surface-logitech-mx-dialpad](https://github.com/nisted/companion-surface-logitech-mx-dialpad) |
 | Akai APC surface (all models) | [companion-surface-akai-apc](https://github.com/nisted/companion-surface-akai-apc) |
@@ -17,7 +17,9 @@ own; this repo only builds them together, for installing everything on a rig in 
 
 ## Downloads
 
-The Build workflow publishes two artifacts on every push (and attaches them to a release for `v*` tags):
+The Build workflow publishes two artifacts on every push (and attaches them to a release for `v*` tags). A push to
+`main` with a version in `BUNDLE_VERSION` that hasn't been released yet publishes it as a pre-release, with notes from
+`.github/RELEASE_NOTES.md`:
 
 - **companion-nige-modules**: each module as its own `.tgz`. In Companion: Modules → **Import module package**,
   one at a time.
